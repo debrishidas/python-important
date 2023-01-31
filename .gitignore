@@ -1,0 +1,7 @@
+.vscode
+.idea/
+streamlit-app/app/utils/__pycache__/
+streamlit-app/app/clustering/__pycache__/
+streamlit-app/app/kpis/__pycache__/
+streamlit-app/postgres-data/
+.python-version

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-fast-api
+spec:
+  selector:
+    matchLabels:
+      app: python-fast-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: python-fast-api
+    spec:
+      containers:
+      - name: python-fast-api
+        image: ratula2804/python-fast-api
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000

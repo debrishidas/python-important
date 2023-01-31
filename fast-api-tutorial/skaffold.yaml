@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: fast-api-tutorial
+build:
+  artifacts:
+  - image: ratula2804/python-fast-api
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - kubernetes/deployment/deployment.yaml
+    - kubernetes/deployment/service.yaml

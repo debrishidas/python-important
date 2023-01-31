@@ -1,0 +1,22 @@
+version: "2"
+services:
+  web:
+    build: .
+    ports:
+      - "8501:8501"
+  postgres:
+    container_name: postgres
+    environment:
+         - POSTGRES_USER=admin
+         - POSTGRES_PASSWORD=admin
+         - POSTGRES_DB=stocks
+         - POSTGRES_HOST_AUTH_METHOD=trust
+         - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
+    image: postgres:9.5.20-alpine
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  postgres-data:
